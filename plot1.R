@@ -63,7 +63,7 @@ if (!exists("df.hhpow")) {
 # EDA graph plot1 (histogram) - Global_active_power
 
 png(filename = "plot1.png", width = 480, height = 480, units = "px")
-# par(cex = 0.99)
+par(cex = 0.95)
 hist(df.hhpow$Global_active_power, 
      col = "red",
      main = "Global Active Power",

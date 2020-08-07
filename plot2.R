@@ -31,27 +31,7 @@ if (!exists("df.hhpow")) {
       
       dfhhpow$Time <- strptime(paste(dfhhpow$Date, dfhhpow$Time, sep = " "),
                                format = "%d/%m/%Y %H:%M:%S")
-      # dfhhpow$Date <- as.Date(dfhhpow$Date, format = "%d/%m/%Y")
-      
-      # library(dplyr)
-      # dfhhpow <- dfhhpow %>% 
-      #             select(everything()) %>% 
-      #             mutate(Time = strptime(paste(Date, Time, " "), 
-      #                                     format = "%d/%m/%Y %H:%M:%S"),
-      #                    Date = as.Date(Date, format = "%d/%m/%Y"),
-      #                    Global_active_power = as.double(Global_active_power),
-      #                    Global_reactive_power = as.double(Global_reactive_power),
-      #                    Voltage = as.double(Voltage),
-      #                    Global_intensity = as.double(Global_intensity),
-      #                    Sub_metering_1 = as.double(Sub_metering_1),
-      #                    Sub_metering_2 = as.double(Sub_metering_2),
-      #                    Sub_metering_3 = as.double(Sub_metering_3)
-      #             )
-      # detach(package:dplyr, unload = TRUE)
-      
-      # df.hhpow <- subset(dfhhpow, Date 
-      #                               %in% as.Date(c("2007-02-01","2007-02-02")))
-      
+
       dfhhpow$Date = NULL  # drop Date column from the dataset
       colnames(dfhhpow)[which(colnames(dfhhpow) == "Time")] <- "Date_Time"
       df.hhpow <<- subset(dfhhpow, as.Date(Date_Time) 
@@ -63,7 +43,7 @@ if (!exists("df.hhpow")) {
 # EDA graph plot2 (line chart) - Global_active_power
 
 png(filename = "plot2.png", width = 480, height = 480, units = "px")
-par(ann = FALSE, cex = 0.98)
+par(ann = FALSE, cex = 0.95)
 with(df.hhpow, plot(x = Date_Time, y = Global_active_power, type = "l")) 
 title(ylab = "Global Active Power (kilowatts)")
 # dev.copy(png, file = "plot2.png")
