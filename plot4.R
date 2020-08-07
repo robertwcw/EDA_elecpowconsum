@@ -48,6 +48,7 @@ with(df.hhpow, {
       plot(x = Date_Time, 
            y = Global_active_power, 
            type = "l",
+           xlab = "",
            ylab = "Global Active Power")
       plot(x = Date_Time, 
            y = Voltage, 
@@ -58,6 +59,7 @@ with(df.hhpow, {
            y = Sub_metering_1, 
            type = "l", 
            col = "black", 
+           xlab = "",
            ylab = "Energy sub metering")
       lines(Date_Time, Sub_metering_2, type = "l", col = "red")
       lines(Date_Time, Sub_metering_3, type = "l", col = "blue")
